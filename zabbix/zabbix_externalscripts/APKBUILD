@@ -1,0 +1,21 @@
+# Contributor: Kevin Daudt <ops@ikke.info>
+# Maintainer: Kevin Daudt <ops@ikke.info>
+pkgname=zabbix_externalscripts
+pkgver=0.1.1
+pkgrel=0
+pkgdesc="External scripts for Zabbix"
+url="https://github.com/ikke/zabbix_externalscripts"
+arch="noarch"
+license="custom"
+depends="python3 rsync"
+source="zabbix_externalscripts-$pkgver.tar.gz::https://github.com/Ikke/zabbix_externalscripts/archive/v$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver"
+options="!check"
+
+package() {
+	cd "$builddir"
+
+	DESTDIR="$pkgdir" ./install.sh
+}
+
+sha512sums="66e0cd1caf13a26c71933915ea0ac8ca2c7b0424648f93cc3addd6fba1e197a72bc0fb2228392b3a1c1c3ba74aaf3b3974ac59889120ead850e60e8c74af6024  zabbix_externalscripts-0.1.1.tar.gz"
